@@ -12,7 +12,7 @@ public class DFS
 		
 		for(int it : adj.get(node))
 		{
-			if(vis[it] == false)
+			if(!vis[it])
 				dfs(it, vis, adj, dfs);
 		}
 	}

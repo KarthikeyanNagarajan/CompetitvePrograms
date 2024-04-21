@@ -24,21 +24,13 @@ public class CourseSchedule1
 
 		int indegree[] = new int[V];
 		for (int i = 0; i < V; i++)
-		{
 			for (int it : adj.get(i))
-			{
 				indegree[it]++;
-			}
-		}
 
 		Queue<Integer> q = new LinkedList<Integer>();
 		for (int i = 0; i < V; i++)
-		{
 			if (indegree[i] == 0)
-			{
 				q.add(i);
-			}
-		}
 
 		List<Integer> topo = new ArrayList<Integer>();
 		// o(v + e)

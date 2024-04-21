@@ -23,7 +23,7 @@ public class BFS
 
 			for (int it : adj.get(node))
 			{
-				if (vis[it] == false)
+				if (!vis[it])
 				{
 					vis[it] = true;
 					q.add(it);

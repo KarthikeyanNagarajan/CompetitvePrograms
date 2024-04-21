@@ -22,6 +22,7 @@ public class BipartiteGraphBFS
 					color[it] = 1 - color[node];
 					q.add(it);
 				}
+				// if previously coloured and have the same colour
 				else if (color[it] == color[node])
 				{
 					return false;

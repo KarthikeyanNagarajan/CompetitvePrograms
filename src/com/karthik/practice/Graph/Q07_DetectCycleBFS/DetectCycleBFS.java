@@ -34,7 +34,7 @@ public class DetectCycleBFS
 
 			for (Integer it : adj.get(node))
 			{
-				if (vis[it] == false)
+				if (!vis[it])
 				{
 					q.add(new Node(it, node));
 					vis[it] = true;
@@ -55,7 +55,7 @@ public class DetectCycleBFS
 		Arrays.fill(parent, -1);
 
 		for (int i = 0; i < V; i++)
-			if (vis[i] == false)
+			if (!vis[i])
 				if (checkForCycle(adj, i, vis, parent))
 					return true;
 

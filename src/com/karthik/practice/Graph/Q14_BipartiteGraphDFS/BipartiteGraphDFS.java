@@ -40,7 +40,7 @@ public class BipartiteGraphDFS
 		{
 			if (color[i] == -1)
 			{
-				if (dfs(i, 0, color, adj) == false)
+				if (!dfs(i, 0, color, adj))
 					return false;
 			}
 		}

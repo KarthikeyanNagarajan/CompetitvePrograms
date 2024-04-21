@@ -12,7 +12,7 @@ public class DetectCycleDFS
 		{
 			if (vis[adjacentNode] == 0)
 			{
-				if (dfs(adjacentNode, node, vis, adj) == true)
+				if (dfs(adjacentNode, node, vis, adj))
 					return true;
 			}
 			else if (adjacentNode != parent)
@@ -28,7 +28,7 @@ public class DetectCycleDFS
 		{
 			if (vis[i] == 0)
 			{
-				if (dfs(i, -1, vis, adj) == true)
+				if (dfs(i, -1, vis, adj))
 					return true;
 			}
 		}

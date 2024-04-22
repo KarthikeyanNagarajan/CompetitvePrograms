@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q21_AlienDictionary;
+package com.karthik.practice.Graph.Q22_AlienDictionary;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,21 +12,14 @@ public class AlienDictionary
 	{
 		int indegree[] = new int[V];
 		for (int i = 0; i < V; i++)
-		{
 			for (int it : adj.get(i))
-			{
 				indegree[it]++;
-			}
-		}
 
 		Queue<Integer> q = new LinkedList<>();
 		for (int i = 0; i < V; i++)
-		{
 			if (indegree[i] == 0)
-			{
 				q.add(i);
-			}
-		}
+
 		List<Integer> topo = new ArrayList<>();
 		while (!q.isEmpty())
 		{

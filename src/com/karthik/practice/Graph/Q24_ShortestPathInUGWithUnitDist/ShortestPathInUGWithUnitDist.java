@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q23_ShortestPathInUGWithUnitDist;
+package com.karthik.practice.Graph.Q24_ShortestPathInUGWithUnitDist;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

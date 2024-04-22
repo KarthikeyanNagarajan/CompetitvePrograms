@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q30_WordLadder1;
+package com.karthik.practice.Graph.Q25_WordLadder1;
 
 import java.util.HashSet;
 import java.util.LinkedList;

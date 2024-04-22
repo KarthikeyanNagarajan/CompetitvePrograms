@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q30_WordLadder2;
+package com.karthik.practice.Graph.Q26_WordLadder2;
 
 import java.util.ArrayList;
 import java.util.Collections;

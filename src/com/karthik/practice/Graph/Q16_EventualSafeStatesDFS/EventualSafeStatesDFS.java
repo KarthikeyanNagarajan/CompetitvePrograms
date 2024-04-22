@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q16_EventualSafeStates;
+package com.karthik.practice.Graph.Q16_EventualSafeStatesDFS;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q22_ShortestPathInDAG;
+package com.karthik.practice.Graph.Q23_ShortestPathInDAG;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -17,7 +17,7 @@ class Pair
 public class ShortestPathInDAG
 {
 
-	private void topoSort(int node, ArrayList<ArrayList<Pair>> adj, int vis[], Stack<Integer> st)
+	private void topoSortDFS(int node, ArrayList<ArrayList<Pair>> adj, int vis[], Stack<Integer> st)
 	{
 		vis[node] = 1;
 
@@ -25,7 +25,7 @@ public class ShortestPathInDAG
 		{
 			int v = adj.get(node).get(i).first;
 			if (vis[v] == 0)
-				topoSort(i, adj, vis, st);
+				topoSortDFS(i, adj, vis, st);
 		}
 		st.add(node);
 	}
@@ -51,7 +51,7 @@ public class ShortestPathInDAG
 		for (int i = 0; i < N; i++)
 		{
 			if (vis[i] == 0)
-				topoSort(i, adj, vis, st);
+				topoSortDFS(i, adj, vis, st);
 		}
 
 		int[] dist = new int[N];

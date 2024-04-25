@@ -1,18 +1,18 @@
-package com.karthik.practice.Graph.Q42_DisjointSetBySize;
+package com.karthik.practice.Graph.Q38_DisjointSetByRank;
 
 import com.karthik.practice.Graph.util.DisjointSet;
 
-public class DisjointSetBySize
+public class DisjointSetByRank
 {
 
 	public static void main(String[] args)
 	{
 		DisjointSet ds = new DisjointSet(7);
-		ds.unionBySize(1, 2);
-		ds.unionBySize(2, 3);
-		ds.unionBySize(4, 5);
-		ds.unionBySize(6, 7);
-		ds.unionBySize(5, 6);
+		ds.unionByRank(1, 2);
+		ds.unionByRank(2, 3);
+		ds.unionByRank(4, 5);
+		ds.unionByRank(6, 7);
+		ds.unionByRank(5, 6);
 
 		// if 3 and 7 same or not
 		if (ds.findUPar(3) == ds.findUPar(7))
@@ -22,7 +22,7 @@ public class DisjointSetBySize
 		else
 			System.out.println("Not Same");
 
-		ds.unionBySize(3, 7);
+		ds.unionByRank(3, 7);
 		if (ds.findUPar(3) == ds.findUPar(7))
 		{
 			System.out.println("Same");

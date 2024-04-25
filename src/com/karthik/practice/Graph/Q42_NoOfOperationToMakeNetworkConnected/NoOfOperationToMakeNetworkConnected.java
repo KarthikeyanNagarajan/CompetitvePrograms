@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q45_NoOfOperationToMakeNetworkConnected;
+package com.karthik.practice.Graph.Q42_NoOfOperationToMakeNetworkConnected;
 
 import com.karthik.practice.Graph.util.DisjointSet;
 

@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q43_KruskalAlgorithm;
+package com.karthik.practice.Graph.Q40_KruskalAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Collections;

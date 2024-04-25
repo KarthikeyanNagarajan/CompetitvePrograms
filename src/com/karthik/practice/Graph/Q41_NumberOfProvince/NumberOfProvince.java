@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q44_NumberOfProvince;
+package com.karthik.practice.Graph.Q41_NumberOfProvince;
 
 import java.util.ArrayList;
 

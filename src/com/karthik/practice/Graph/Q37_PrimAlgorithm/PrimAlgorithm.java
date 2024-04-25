@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q40_PrimAlgorithm;
+package com.karthik.practice.Graph.Q37_PrimAlgorithm;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

@@ -25,7 +25,7 @@ public class ShortestPathInDAG
 		{
 			int v = adj.get(node).get(i).first;
 			if (vis[v] == 0)
-				topoSortDFS(i, adj, vis, st);
+				topoSortDFS(v, adj, vis, st);
 		}
 		st.add(node);
 	}

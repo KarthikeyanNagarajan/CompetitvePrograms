@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q52_ArticulationPointInGraph;
+package com.karthik.practice.Graph.Q49_ArticulationPointInGraph;
 
 import java.util.ArrayList;
 

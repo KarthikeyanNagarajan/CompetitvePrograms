@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q50_KosarajuAlgorithm;
+package com.karthik.practice.Graph.Q47_KosarajuAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Stack;

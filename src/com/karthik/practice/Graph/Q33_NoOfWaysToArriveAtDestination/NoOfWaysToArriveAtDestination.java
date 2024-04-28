@@ -98,4 +98,13 @@ public class NoOfWaysToArriveAtDestination
 		System.out.print(ans);
 		System.out.println();
 	}
+//	6 8
+//	0 1 1000000000
+//	0 3 1000000000
+//	1 3 1000000000
+//	1 2 1000000000
+//	1 5 1000000000
+//	3 4 1000000000
+//	4 5 1000000000
+//	2 5 1000000000
 }

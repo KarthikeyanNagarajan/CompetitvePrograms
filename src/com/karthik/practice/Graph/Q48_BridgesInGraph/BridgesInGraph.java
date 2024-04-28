@@ -1,4 +1,4 @@
-package com.karthik.practice.Graph.Q51_BridgesInGraph;
+package com.karthik.practice.Graph.Q48_BridgesInGraph;
 
 import java.util.ArrayList;
 import java.util.Arrays;

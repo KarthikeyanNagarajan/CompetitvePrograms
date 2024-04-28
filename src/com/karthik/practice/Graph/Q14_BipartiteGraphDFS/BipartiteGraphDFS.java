@@ -16,7 +16,7 @@ public class BipartiteGraphDFS
 			// if uncoloured
 			if (color[it] == -1)
 			{
-				if (dfs(it, 1 - col, color, adj) == false)
+				if (!dfs(it, 1 - col, color, adj))
 					return false;
 			}
 			// if previously coloured and have the same colour

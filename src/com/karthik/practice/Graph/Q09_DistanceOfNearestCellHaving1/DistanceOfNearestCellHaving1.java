@@ -39,10 +39,6 @@ public class DistanceOfNearestCellHaving1
 					q.add(new Node(i, j, 0));
 					vis[i][j] = 1;
 				}
-				else
-				{
-					vis[i][j] = 0;
-				}
 			}
 		}
 
@@ -75,9 +71,21 @@ public class DistanceOfNearestCellHaving1
 	public static void main(String[] args)
 	{
 		int[][] grid = { { 0, 1, 1, 0 }, { 1, 1, 0, 0 }, { 0, 0, 1, 1 } };
+		System.out.println("Given grid");
+		for (int i = 0; i < grid.length; i++)
+		{
+			for (int j = 0; j < grid[i].length; j++)
+			{
+				System.out.print(grid[i][j] + " ");
+			}
+			System.out.println();
+		}
 
 		DistanceOfNearestCellHaving1 obj = new DistanceOfNearestCellHaving1();
 		int[][] ans = obj.nearest(grid);
+		
+		System.out.println();
+		System.out.println("Dist grid");
 		for (int i = 0; i < ans.length; i++)
 		{
 			for (int j = 0; j < ans[i].length; j++)

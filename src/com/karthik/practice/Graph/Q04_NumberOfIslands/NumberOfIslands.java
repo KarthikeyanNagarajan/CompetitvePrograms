@@ -17,12 +17,11 @@ class Pair
 
 public class NumberOfIslands
 {
-
-	private void bfs(int ro, int co, int[][] vis, char[][] grid)
+	private void bfs(int u, int v, int[][] vis, char[][] grid)
 	{
-		vis[ro][co] = 1;
+		vis[u][v] = 1;
 		Queue<Pair> q = new LinkedList<Pair>();
-		q.add(new Pair(ro, co));
+		q.add(new Pair(u, v));
 		int n = grid.length;
 		int m = grid[0].length;
 		while (!q.isEmpty())
@@ -31,18 +30,17 @@ public class NumberOfIslands
 			int col = q.peek().second;
 			q.remove();
 
-			for (int delrow = -1; delrow <= 1; delrow++)
+			int[] dr = { -1, 0, 1, 0 };
+			int[] dc = { 0, 1, 0, -1 };
+
+			for (int i = 0; i < 4; i++)
 			{
-				for (int delcol = -1; delcol <= 1; delcol++)
+				int nrow = row + dr[i];
+				int ncol = col + dc[i];
+				if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == '1' && vis[nrow][ncol] == 0)
 				{
-					int nrow = row + delrow;
-					int ncol = col + delcol;
-					if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == '1'
-							&& vis[nrow][ncol] == 0)
-					{
-						vis[nrow][ncol] = 1;
-						q.add(new Pair(nrow, ncol));
-					}
+					vis[nrow][ncol] = 1;
+					q.add(new Pair(nrow, ncol));
 				}
 			}
 		}

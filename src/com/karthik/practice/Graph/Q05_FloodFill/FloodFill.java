@@ -3,8 +3,8 @@ package com.karthik.practice.Graph.Q05_FloodFill;
 public class FloodFill
 {
 
-	private void dfs(int row, int col, int[][] ans, int[][] image, int newColor, int delRow[], int delCol[],
-			int iniColor)
+	private void dfs(int row, int col, int[][] image, int delRow[], int delCol[], int[][] ans, int iniColor,
+			int newColor)
 	{
 		ans[row][col] = newColor;
 		int n = image.length;
@@ -18,19 +18,19 @@ public class FloodFill
 			if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && image[nrow][ncol] == iniColor
 					&& ans[nrow][ncol] != newColor)
 			{
-				dfs(nrow, ncol, ans, image, newColor, delRow, delCol, iniColor);
+				dfs(nrow, ncol, image, delRow, delCol, ans, iniColor, newColor);
 			}
 		}
 	}
 
-	public int[][] floodFill(int[][] image, int sr, int sc, int newColor)
+	public int[][] floodFill(int[][] image, int srcRow, int srcCol, int newColor)
 	{
-		int iniColour = image[sr][sc];
+		int iniColour = image[srcRow][srcCol];
 		int[][] ans = image;
 
 		int[] delrow = { 0, 0, 1, -1 };
 		int[] delcol = { 1, -1, 0, 0 };
-		dfs(sr, sc, ans, image, newColor, delrow, delcol, iniColour);
+		dfs(srcRow, srcCol, image, delrow, delcol, ans, iniColour, newColor);
 		return ans;
 	}
 

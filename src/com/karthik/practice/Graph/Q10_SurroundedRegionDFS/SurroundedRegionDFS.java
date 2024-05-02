@@ -26,10 +26,10 @@ public class SurroundedRegionDFS
 		int delrow[] = { -1, 0, +1, 0 };
 		int delcol[] = { 0, 1, 0, -1 };
 		int vis[][] = new int[n][m];
+		
 		// traverse first row and last row
 		for (int j = 0; j < m; j++)
 		{
-			// check for unvisited Os in the boundary rws
 			// first row
 			if (vis[0][j] == 0 && mat[0][j] == 'O')
 			{
@@ -43,9 +43,9 @@ public class SurroundedRegionDFS
 			}
 		}
 
+		// traverse first col and last col
 		for (int i = 0; i < n; i++)
 		{
-			// check for unvisited Os in the boundary columns
 			// first column
 			if (vis[i][0] == 0 && mat[i][0] == 'O')
 			{
@@ -77,8 +77,21 @@ public class SurroundedRegionDFS
 		char mat[][] = { { 'X', 'X', 'X', 'X' }, { 'X', 'O', 'X', 'X' }, { 'X', 'O', 'O', 'X' }, { 'X', 'O', 'X', 'X' },
 				{ 'X', 'X', 'O', 'O' } };
 
+		System.out.println("Given grid");
+		for (int i = 0; i < mat.length; i++)
+		{
+			for (int j = 0; j < mat[i].length; j++)
+			{
+				System.out.print(mat[i][j] + " ");
+			}
+			System.out.println();
+		}
+
 		// n = 5, m = 4
 		char[][] ans = SurroundedRegionDFS.fill(5, 4, mat);
+
+		System.out.println();
+		System.out.println("Changed grid");
 		for (int i = 0; i < 5; i++)
 		{
 			for (int j = 0; j < 4; j++)
@@ -88,5 +101,4 @@ public class SurroundedRegionDFS
 			System.out.println();
 		}
 	}
-
 }

@@ -66,7 +66,7 @@ public class ZigZagTraversalOfBinaryTree
 		root.right.left = new TreeNode(6);
 		root.right.right = new TreeNode(7);
 
-		zigZagTraversalOfBinaryTree(root);
+		System.out.println(zigZagTraversalOfBinaryTree(root));
 	}
 
 }

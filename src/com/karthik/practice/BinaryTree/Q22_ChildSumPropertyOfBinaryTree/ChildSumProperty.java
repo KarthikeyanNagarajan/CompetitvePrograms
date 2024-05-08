@@ -1,4 +1,4 @@
-package com.karthik.practice.BinaryTree.Q21_ChildSumPropertyOfBinaryTree;
+package com.karthik.practice.BinaryTree.Q22_ChildSumPropertyOfBinaryTree;
 
 class TreeNode
 {

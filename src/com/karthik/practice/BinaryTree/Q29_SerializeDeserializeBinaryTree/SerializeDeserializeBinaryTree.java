@@ -1,4 +1,4 @@
-package com.karthik.practice.BinaryTree.Q28_SerializeDeserializeBinaryTree;
+package com.karthik.practice.BinaryTree.Q29_SerializeDeserializeBinaryTree;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

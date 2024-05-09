@@ -3,7 +3,7 @@ package com.karthik.practice.BinarySearch.Q15_PeakElement;
 public class PeakElementIndex
 {
 
-	private static int findPeakElement(int[] arr)
+	private static int findPeakElementIndex(int[] arr)
 	{
 		int n = arr.length;
 
@@ -33,7 +33,7 @@ public class PeakElementIndex
 	public static void main(String[] args)
 	{
 		int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 5, 1 };
-		int ans = findPeakElement(arr);
+		int ans = findPeakElementIndex(arr);
 		System.out.println("The peak is at index: " + ans);
 	}
 

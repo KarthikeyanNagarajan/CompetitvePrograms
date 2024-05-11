@@ -6,62 +6,57 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 
-class TreeNode
+class Node
 {
 	int val;
-	TreeNode left;
-	TreeNode right;
+	Node left;
+	Node right;
 
-	TreeNode()
-	{
-	}
-
-	TreeNode(int val)
+	Node(int val)
 	{
 		this.val = val;
+		this.left = null;
+		this.right = null;
 	}
 }
 
 class Pair
 {
-	int data;
-	TreeNode node;
+	Node node;
+	int x;
 
-	Pair()
-	{
-	}
-
-	Pair(TreeNode node, int data)
+	Pair(Node node, int x)
 	{
 		this.node = node;
-		this.data = data;
+		this.x = x;
 	}
 }
 
 public class BottomView
 {
-	public static ArrayList<Integer> topView(TreeNode root)
+	public static ArrayList<Integer> bottomView(Node root)
 	{
 		ArrayList<Integer> ans = new ArrayList<>();
 		if (root == null)
 			return ans;
 
 		Map<Integer, Integer> map = new TreeMap<>();
+
 		Queue<Pair> q = new LinkedList<>();
 		q.add(new Pair(root, 0));
 
 		while (!q.isEmpty())
 		{
-			Pair p = q.remove();
-			int dt = p.data;
-			TreeNode temp = p.node;
+			Node temp = q.peek().node;
+			int x = q.peek().x;
+			q.poll();
 
-			map.put(dt, temp.val);
+			map.put(x, temp.val);
 
 			if (temp.left != null)
-				q.add(new Pair(temp.left, dt - 1));
+				q.add(new Pair(temp.left, x - 1));
 			if (temp.right != null)
-				q.add(new Pair(temp.right, dt + 1));
+				q.add(new Pair(temp.right, x + 1));
 		}
 
 		for (Map.Entry<Integer, Integer> entry : map.entrySet())
@@ -72,16 +67,15 @@ public class BottomView
 
 	public static void main(String[] args)
 	{
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
-		root.right = new TreeNode(3);
-		root.right.left = new TreeNode(6);
-		root.right.right = new TreeNode(7);
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right = new Node(3);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
 
-		ArrayList<Integer> topView = topView(root);
-		System.out.println(topView);
+		System.out.println(bottomView(root));
 	}
 
 }

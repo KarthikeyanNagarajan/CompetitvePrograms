@@ -46,6 +46,7 @@ public class LevelOrderTraversal
 					q.offer(node.left);
 				if (node.right != null)
 					q.offer(node.right);
+				
 				subList.add(node.val);
 			}
 			levelorder.add(subList);

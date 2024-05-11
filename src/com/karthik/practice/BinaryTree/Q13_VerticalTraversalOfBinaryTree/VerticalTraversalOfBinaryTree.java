@@ -60,6 +60,10 @@ public class VerticalTraversalOfBinaryTree
 
 			map.get(x).get(y).add(node.data);
 
+			// Above conditions are put in one line, Both are same
+			// map.computeIfAbsent(x, k -> new TreeMap<>())
+			// .computeIfAbsent(y, k -> new PriorityQueue<>()).add(node.data);
+
 			if (node.left != null)
 				q.add(new Tuple(node.left, x - 1, y + 1));
 			if (node.right != null)

@@ -2,64 +2,62 @@ package com.karthik.practice.BinaryTree.Q19_RootToNodePathOfBinaryTree;
 
 import java.util.ArrayList;
 
-class TreeNode
+class Node
 {
 	int val;
-	TreeNode left;
-	TreeNode right;
+	Node left;
+	Node right;
 
-	TreeNode()
-	{
-	}
-
-	TreeNode(int val)
+	Node(int val)
 	{
 		this.val = val;
+		this.left = null;
+		this.right = null;
 	}
 }
 
 public class RootToNodePath
 {
-	public static boolean getPath(TreeNode root, ArrayList<Integer> arr, int x)
+	public static boolean getPath(Node root, int x, ArrayList<Integer> ans)
 	{
 		if (root == null)
 			return false;
 
-		arr.add(root.val);
+		ans.add(root.val);
 
 		if (root.val == x)
 			return true;
 
-		if (getPath(root.left, arr, x) || getPath(root.right, arr, x))
+		if (getPath(root.left, x, ans) || getPath(root.right, x, ans))
 			return true;
 
-		arr.remove(arr.size() - 1);
+		ans.remove(ans.size() - 1);
 
 		return false;
 	}
 
-	public static ArrayList<Integer> solve(TreeNode A, int B)
+	public static ArrayList<Integer> solve(Node root, int x)
 	{
-		ArrayList<Integer> arr = new ArrayList<>();
-		if (A == null)
-			return arr;
+		ArrayList<Integer> ans = new ArrayList<>();
+		if (root == null)
+			return ans;
 
-		getPath(A, arr, B);
+		getPath(root, x, ans);
 
-		return arr;
+		return ans;
 	}
 
 	public static void main(String[] args)
 	{
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
-		root.right = new TreeNode(3);
-		root.right.left = new TreeNode(6);
-		root.right.right = new TreeNode(7);
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right = new Node(3);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
 
-		solve(root, 3);
+		System.out.println(solve(root, 6));
 	}
 
 }

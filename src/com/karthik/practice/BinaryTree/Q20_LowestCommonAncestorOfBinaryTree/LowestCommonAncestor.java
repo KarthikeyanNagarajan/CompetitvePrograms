@@ -6,13 +6,11 @@ class TreeNode
 	TreeNode left;
 	TreeNode right;
 
-	TreeNode()
-	{
-	}
-
 	TreeNode(int val)
 	{
 		this.val = val;
+		this.left = null;
+		this.right = null;
 	}
 }
 
@@ -44,23 +42,9 @@ public class LowestCommonAncestor
 		root.right.left = new TreeNode(6);
 		root.right.right = new TreeNode(7);
 
-		TreeNode p = new TreeNode(1);
-		p.left = new TreeNode(2);
-		p.left.left = new TreeNode(4);
-		p.left.right = new TreeNode(5);
-		p.right = new TreeNode(3);
-		p.right.left = new TreeNode(6);
-		p.right.right = new TreeNode(7);
+		TreeNode ans = lowestCommonAncestor(root, root.left.left, root.left.right);
 
-		TreeNode q = new TreeNode(1);
-		q.left = new TreeNode(2);
-		q.left.left = new TreeNode(4);
-		q.left.right = new TreeNode(5);
-		q.right = new TreeNode(3);
-		q.right.left = new TreeNode(6);
-		q.right.right = new TreeNode(7);
-
-		System.out.println(lowestCommonAncestor(root, p, q).val);
+		System.out.println(ans.val);
 	}
 
 }

@@ -5,61 +5,66 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class TreeNode
+class Node
 {
 	int val;
-	TreeNode left;
-	TreeNode right;
+	Node left;
+	Node right;
 
-	TreeNode()
-	{
-	}
-
-	TreeNode(int val)
+	Node(int val)
 	{
 		this.val = val;
+		this.left = null;
+		this.right = null;
 	}
 }
 
 public class LevelOrderTraversal
 {
 
-	private static List<List<Integer>> levelOrderTraversal(TreeNode root)
+	private static List<List<Integer>> levelOrderTraversal(Node root)
 	{
-		Queue<TreeNode> queue = new LinkedList<>();
-		List<List<Integer>> wrapList = new ArrayList<>();
+		List<List<Integer>> levelorder = new ArrayList<>();
 		if (root == null)
-			return wrapList;
-		queue.offer(root);
-		while (!queue.isEmpty())
+			return levelorder;
+
+		Queue<Node> q = new LinkedList<>();
+		q.offer(root);
+
+		while (!q.isEmpty())
 		{
-			int numLength = queue.size();
+			int size = q.size();
+
 			List<Integer> subList = new ArrayList<>();
-			for (int i = 0; i < numLength; i++)
+
+			for (int i = 0; i < size; i++)
 			{
-				if (queue.peek().left != null)
-					queue.offer(queue.peek().left);
-				if (queue.peek().right != null)
-					queue.offer(queue.peek().right);
-				subList.add(queue.poll().val);
+				Node node = q.peek();
+				q.poll();
+
+				if (node.left != null)
+					q.offer(node.left);
+				if (node.right != null)
+					q.offer(node.right);
+				subList.add(node.val);
 			}
-			wrapList.add(subList);
+			levelorder.add(subList);
 		}
-		return wrapList;
+
+		return levelorder;
 	}
 
 	public static void main(String[] args)
 	{
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
-		root.right = new TreeNode(3);
-		root.right.left = new TreeNode(6);
-		root.right.right = new TreeNode(7);
-		List<List<Integer>> wrapList = new ArrayList<>();
-		wrapList = levelOrderTraversal(root);
-		System.out.println(wrapList);
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right = new Node(3);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
+
+		System.out.println(levelOrderTraversal(root));
 	}
 
 }

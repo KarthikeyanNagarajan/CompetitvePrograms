@@ -16,13 +16,13 @@ class TreeNode
 
 public class LowestCommonAncestor
 {
-	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
+	public static TreeNode findLCA(TreeNode root, TreeNode p, TreeNode q)
 	{
 		if (root == null || root == p || root == q)
 			return root;
 
-		TreeNode left = lowestCommonAncestor(root.left, p, q);
-		TreeNode right = lowestCommonAncestor(root.right, p, q);
+		TreeNode left = findLCA(root.left, p, q);
+		TreeNode right = findLCA(root.right, p, q);
 
 		if (left == null)
 			return right;
@@ -30,6 +30,34 @@ public class LowestCommonAncestor
 			return left;
 		else
 			return root;
+	}
+
+	public static TreeNode findNode(TreeNode root, int n)
+	{
+		if (root != null)
+		{
+			if (root.val == n)
+			{
+				return root;
+			}
+			else
+			{
+				TreeNode found = findNode(root.left, n);
+				if (found == null)
+					found = findNode(root.right, n);
+				return found;
+			}
+		}
+		else
+			return null;
+	}
+
+	public static TreeNode lca(TreeNode root, int n1, int n2)
+	{
+		TreeNode p = findNode(root, n1);
+		TreeNode q = findNode(root, n2);
+
+		return findLCA(root, p, q);
 	}
 
 	public static void main(String[] args)
@@ -42,7 +70,7 @@ public class LowestCommonAncestor
 		root.right.left = new TreeNode(6);
 		root.right.right = new TreeNode(7);
 
-		TreeNode ans = lowestCommonAncestor(root, root.left.left, root.left.right);
+		TreeNode ans = lca(root, 4, 5);
 
 		System.out.println(ans.val);
 	}

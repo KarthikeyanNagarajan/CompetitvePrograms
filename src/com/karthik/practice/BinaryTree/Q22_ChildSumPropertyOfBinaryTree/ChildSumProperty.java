@@ -1,29 +1,28 @@
 package com.karthik.practice.BinaryTree.Q22_ChildSumPropertyOfBinaryTree;
 
-class TreeNode
+class Node
 {
 	int val;
-	TreeNode left;
-	TreeNode right;
+	Node left;
+	Node right;
 
-	TreeNode()
-	{
-	}
-
-	TreeNode(int val)
+	Node(int val)
 	{
 		this.val = val;
+		this.left = null;
+		this.right = null;
 	}
 }
 
 public class ChildSumProperty
 {
 
-	public static void childSumProperty(TreeNode root)
+	public static void childSumProperty(Node root)
 	{
 		if (root == null)
 			return;
 
+		// Add left and right values to child
 		int child = 0;
 		if (root.left != null)
 			child += root.left.val;
@@ -36,6 +35,7 @@ public class ChildSumProperty
 		}
 		else
 		{
+			// Assign root value to left and right
 			if (root.left != null)
 				root.left.val = root.val;
 			else if (root.right != null)
@@ -45,6 +45,7 @@ public class ChildSumProperty
 		childSumProperty(root.left);
 		childSumProperty(root.right);
 
+		// After Recrsion Add left and right values to total
 		int total = 0;
 		if (root.left != null)
 			total += root.left.val;
@@ -57,15 +58,33 @@ public class ChildSumProperty
 
 	public static void main(String[] args)
 	{
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
-		root.right = new TreeNode(3);
-		root.right.left = new TreeNode(6);
-		root.right.right = new TreeNode(7);
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right = new Node(3);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
+
+		System.out.print("Before modification: ");
+		inorder(root);
+		System.out.println();
 
 		childSumProperty(root);
+
+		System.out.print("After modification: ");
+		inorder(root);
+		System.out.println();
+	}
+
+	public static void inorder(Node root)
+	{
+		if (root == null)
+			return;
+
+		inorder(root.left);
+		System.out.print(root.val + " ");
+		inorder(root.right);
 	}
 
 }

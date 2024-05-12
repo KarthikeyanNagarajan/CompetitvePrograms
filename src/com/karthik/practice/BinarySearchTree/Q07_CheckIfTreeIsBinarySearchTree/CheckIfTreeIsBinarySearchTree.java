@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearchTree.Q06_CheckIfTreeIsBinarySearchTree;
+package com.karthik.practice.BinarySearchTree.Q07_CheckIfTreeIsBinarySearchTree;
 
 class TreeNode
 {

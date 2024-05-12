@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearchTree.Q09_InorderSuccessorInBinarySearchTree;
+package com.karthik.practice.BinarySearchTree.Q10_InorderSuccessorInBinarySearchTree;
 
 class TreeNode
 {

@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearchTree.Q07_LowestCommonAncestorInBinarySearchTree;
+package com.karthik.practice.BinarySearchTree.Q08_LowestCommonAncestorInBinarySearchTree;
 
 class TreeNode
 {

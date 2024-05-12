@@ -45,7 +45,7 @@ public class VerticalTraversalOfBinaryTree
 		Queue<Tuple> q = new LinkedList<>();
 		q.add(new Tuple(root, 0, 0));
 
-		if (!q.isEmpty())
+		while (!q.isEmpty())
 		{
 			Node node = q.peek().node;
 			int x = q.peek().x;
@@ -76,10 +76,9 @@ public class VerticalTraversalOfBinaryTree
 			ans.add(new ArrayList<>());
 			for (PriorityQueue<Integer> it1 : it.values())
 			{
-				System.out.println(it1.size());
 				while (!it1.isEmpty())
 				{
-					System.out.println(it1.peek());
+//					System.out.println(it1.peek());
 					ans.get(ans.size() - 1).add(it1.poll());
 				}
 			}

@@ -30,9 +30,7 @@ public class SortNearlySortedArray
 			heap.add(arr[i]);
 		}
 
-		Iterator<Integer> itr = heap.iterator();
-
-		while (itr.hasNext())
+		while (!heap.isEmpty())
 		{
 			arr[index++] = heap.peek();
 			heap.poll();

@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q13_NthRootOfNumber;
+package com.karthik.practice.BinarySearch.Q15_NthRootOfNumber;
 
 public class NthRootOfNumber
 {

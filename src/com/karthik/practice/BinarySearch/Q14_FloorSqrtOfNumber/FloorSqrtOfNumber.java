@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q12_FloorSqrtOfNumber;
+package com.karthik.practice.BinarySearch.Q14_FloorSqrtOfNumber;
 
 public class FloorSqrtOfNumber
 {

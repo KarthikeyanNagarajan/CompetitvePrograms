@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q14_SingleElement;
+package com.karthik.practice.BinarySearch.Q12_SingleElement;
 
 public class SingleElement
 {
@@ -22,7 +22,8 @@ public class SingleElement
 			if (arr[mid] != arr[mid - 1] && arr[mid] != arr[mid + 1])
 				return arr[mid];
 
-			if ((mid % 2 == 1 && arr[mid - 1] == arr[mid]) || (mid % 2 == 0 && arr[mid] == arr[mid + 1]))
+			// (0, 1) -> target in right side
+			if ((mid % 2 == 0 && arr[mid] == arr[mid + 1]) || (mid % 2 == 1 && arr[mid - 1] == arr[mid]))
 				low = mid + 1;
 			else
 				high = mid - 1;

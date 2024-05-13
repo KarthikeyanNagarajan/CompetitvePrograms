@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q15_PeakElement;
+package com.karthik.practice.BinarySearch.Q13_PeakElement;
 
 public class PeakElementIndex
 {

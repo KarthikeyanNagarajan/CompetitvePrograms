@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q21_BookAllocationProblem;
+package com.karthik.practice.BinarySearch.Q22_BookAllocationProblem;
 
 public class BookAllocationProblem
 {

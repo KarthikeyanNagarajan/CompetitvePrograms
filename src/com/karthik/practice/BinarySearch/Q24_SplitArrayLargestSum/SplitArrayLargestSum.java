@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q22_SplitArrayLargestSum;
+package com.karthik.practice.BinarySearch.Q24_SplitArrayLargestSum;
 
 public class SplitArrayLargestSum
 {

@@ -15,11 +15,14 @@ public class KthMissingPositiveNumber
 			else
 				high = mid - 1;
 		}
+
+		// Both return can be used
 		return k + high + 1;
+		// return low + k;
 	}
-	
-//	Step 1: k = 4, low = 0, high = 3, mid = 1, missing = (7 - 2) = 5
-//	Step 2: k = 4, low = 0, high = 0, mid = 0, missing = (4 - 1) = 3
+
+	// Step 1: k = 4, low = 0, high = 3, mid = 1, missing = (7 - 2) = 5
+	// Step 2: k = 4, low = 0, high = 0, mid = 0, missing = (4 - 1) = 3
 
 	public static void main(String[] args)
 	{

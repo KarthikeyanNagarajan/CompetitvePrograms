@@ -1,4 +1,4 @@
-package com.karthik.practice.BinarySearch.Q24_AggressiveCows;
+package com.karthik.practice.BinarySearch.Q21_AggressiveCows;
 
 import java.util.Arrays;
 

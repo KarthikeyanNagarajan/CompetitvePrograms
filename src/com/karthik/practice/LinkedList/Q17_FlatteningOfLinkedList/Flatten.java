@@ -1,4 +1,4 @@
-package com.karthik.practice.LinkedList.Q17_Flattening;
+package com.karthik.practice.LinkedList.Q17_FlatteningOfLinkedList;
 
 class Node
 {

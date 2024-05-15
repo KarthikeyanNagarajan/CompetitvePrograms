@@ -51,9 +51,9 @@ public class UsingTwoPointer
 		UsingTwoPointer list = new UsingTwoPointer();
 		for (int i = 5; i >= 1; i--)
 		{
-			list.pushNode(i);
-			list.printNode();
-			list.printMiddle();
+			list.pushNode(i);			
 		}
+		list.printNode();
+		list.printMiddle();
 	}
 }

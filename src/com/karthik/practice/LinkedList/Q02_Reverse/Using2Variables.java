@@ -37,12 +37,12 @@ public class Using2Variables
 	public void reverse()
 	{
 		Node next = null;
-		Node node = head;
-		while(node != null)
+		Node cur = head;
+		while(cur.next != null)
 		{
-			next = node.next;
-			node.next = next.next;
-			next.next = node;
+			next = cur.next;
+			cur.next = next.next;
+			next.next = head;
 			head = next;
 		}
 	}

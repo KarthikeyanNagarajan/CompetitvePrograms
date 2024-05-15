@@ -56,6 +56,7 @@ public class UsingIterative
 		{
 			list.pushNode(i);
 		}
+		list.printNode();
 		list.reverse();
 		list.printNode();
 	}

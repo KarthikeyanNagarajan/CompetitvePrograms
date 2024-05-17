@@ -1,29 +1,20 @@
 package com.karthik.practice.LinkedList.Q34_BinarySearch;
 
+class Node
+{
+	int data;
+	Node next;
+
+	public Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+	}
+}
+
 public class BinarySearch
 {
-	static Node head;
-
-	class Node
-	{
-		int data;
-		Node next;
-
-		public Node(int data)
-		{
-			this.data = data;
-			this.next = null;
-		}
-	}
-
-	public void pushNode(int data)
-	{
-		Node new_node = new Node(data);
-		new_node.next = head;
-		head = new_node;
-	}
-
-	public void printNode()
+	public static void printNode(Node head)
 	{
 		Node temp = head;
 		while (temp != null)
@@ -33,54 +24,57 @@ public class BinarySearch
 		}
 		System.out.print("Null" + "\n");
 	}
-	
-	public Node getMiddle(Node start, Node last)
+
+	public static Node getMiddle(Node low, Node high)
 	{
-		Node slow = start;
-		Node fast = start.next;
-		while (fast != null && fast.next != null && fast != last)
+		Node slow = low;
+		Node fast = low.next;
+		while (fast != null && fast.next != null && fast != high)
 		{
 			slow = slow.next;
-			fast = fast.next.next;			
+			fast = fast.next.next;
 		}
 		return slow;
 	}
 
-	public Node search(int key)
+	public static Node search(Node head, int val)
 	{
-		Node start = head;
-		Node last = null;
-		while(start != last)
+		Node low = head;
+		Node high = null;
+		while (low != high)
 		{
-			Node mid = getMiddle(start, last);
-			if(mid == null)
+			Node mid = getMiddle(low, high);
+
+			if (mid == null)
 				return null;
-			if(mid.data == key)
+
+			if (mid.data == val)
 				return mid;
-			else if (mid.data < key)
-				start = mid.next;
+
+			if (mid.data < val)
+				low = mid.next;
 			else
-				last = mid;
-		}	
+				high = mid;
+		}
 		return null;
 	}
 
 	public static void main(String[] args)
 	{
-		BinarySearch list = new BinarySearch();
-		list.pushNode(12);
-		list.pushNode(11);
-		list.pushNode(9);
-		list.pushNode(5);
-		list.pushNode(3);
-		list.pushNode(2);
-		list.printNode();
-		int key = 5;
-		Node ans = list.search(key);
-		if(ans != null)
-			System.out.println(ans.data);
+		Node head = new Node(2);
+		head.next = new Node(3);
+		head.next.next = new Node(5);
+		head.next.next.next = new Node(9);
+		head.next.next.next.next = new Node(11);
+		head.next.next.next.next.next = new Node(12);
+
+		printNode(head);
+		Node ans = search(head, 5);
+
+		if (ans != null)
+			System.out.println("Found");
 		else
-			System.out.println(0);
+			System.out.println("Not found");
 	}
 
 }

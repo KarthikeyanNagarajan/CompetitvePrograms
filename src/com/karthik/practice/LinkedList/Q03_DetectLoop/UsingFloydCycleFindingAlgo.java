@@ -2,45 +2,11 @@ package com.karthik.practice.LinkedList.Q03_DetectLoop;
 
 public class UsingFloydCycleFindingAlgo
 {
-	Node head;
-
-	class Node
+	public static boolean detectLoop(Node head)
 	{
-		int data;
-		Node next;
-
-		public Node(int data)
-		{
-			this.data = data;
-			this.next = null;
-		}
-	}
-
-	public void pushNode(int data)
-	{
-		Node new_node = new Node(data);
-		new_node.next = head;
-		head = new_node;
-	}
-
-	public void printNode(Node head)
-	{
-		Node temp = head;
-		while (temp != null)
-		{
-			System.out.print(temp.data + "->");
-			temp = temp.next;
-		}
-		System.out.print("Null" + "\n");
-	}
-
-	public boolean reverse()
-	{
-		if (head != null || head.next != null)
-			return false;
 		Node slow = head;
 		Node fast = head;
-		while (fast.next != null && fast.next.next != null)
+		while (fast != null && fast.next != null)
 		{
 			fast = fast.next.next;
 			slow = slow.next;
@@ -52,13 +18,20 @@ public class UsingFloydCycleFindingAlgo
 
 	public static void main(String[] args)
 	{
-		UsingFloydCycleFindingAlgo list = new UsingFloydCycleFindingAlgo();
-		for (int i = 5; i >= 1; i--)
-		{
-			list.pushNode(i);
-		}
-		boolean flag = list.reverse();
-		System.out.println(flag);
+		Node head = new Node(1);
+		Node second = new Node(2);
+		Node third = new Node(3);
+		Node fourth = new Node(4);
+		Node fifth = new Node(5);
+
+		head.next = second;
+		second.next = third;
+		third.next = fourth;
+		fourth.next = fifth;
+		// Create a loop
+		fifth.next = third;
+
+		System.out.println(detectLoop(head));
 	}
 
 }

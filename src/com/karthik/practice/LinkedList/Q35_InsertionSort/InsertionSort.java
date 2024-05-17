@@ -65,11 +65,11 @@ public class InsertionSort
 	{
 		InsertionSort list = new InsertionSort();
 		list.pushNode(12);
-		list.pushNode(11);
-		list.pushNode(9);
+		list.pushNode(2);
 		list.pushNode(5);
 		list.pushNode(3);
-		list.pushNode(2);
+		list.pushNode(11);
+		list.pushNode(9);
 		list.printNode();
 
 		Node ans = list.sort();

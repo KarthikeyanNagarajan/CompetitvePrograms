@@ -59,7 +59,8 @@ public class DeleteNodes
 		head = head.next;
 		while (head != null)
 		{
-			System.out.println("1 : " + head.data + " " + prev.data);
+			if (head != null)
+				System.out.println("head : " + head.data + " -  prev :" + prev.data + " -  max :" + max);
 			if (head.data > max)
 			{
 				max = head.data;
@@ -71,8 +72,6 @@ public class DeleteNodes
 				prev.next = head.next;
 				head = prev.next;
 			}
-			if (head != null)
-				System.out.println("2 : " + head.data + " " + prev.data);
 		}
 		head = reverse(cur);
 		return head;
@@ -89,7 +88,6 @@ public class DeleteNodes
 
 		list.printNode();
 		head = list.deleteNode(head);
-		System.out.println(head.data);
 		list.printNode();
 	}
 

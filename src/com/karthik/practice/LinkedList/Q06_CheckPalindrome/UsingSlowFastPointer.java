@@ -1,29 +1,20 @@
 package com.karthik.practice.LinkedList.Q06_CheckPalindrome;
 
+class Node
+{
+	int data;
+	Node next;
+
+	public Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+	}
+}
+
 public class UsingSlowFastPointer
 {
-	Node head;
-
-	class Node
-	{
-		int data;
-		Node next;
-
-		public Node(int data)
-		{
-			this.data = data;
-			this.next = null;
-		}
-	}
-
-	public void pushNode(int data)
-	{
-		Node new_node = new Node(data);
-		new_node.next = head;
-		head = new_node;
-	}
-
-	public void printNode(Node head)
+	public static void printNode(Node head)
 	{
 		Node temp = head;
 		while (temp != null)
@@ -34,11 +25,11 @@ public class UsingSlowFastPointer
 		System.out.print("Null" + "\n");
 	}
 
-	public Node reverse(Node n)
+	public static Node reverse(Node head)
 	{
 		Node prev = null;
 		Node next = null;
-		Node current = n;
+		Node current = head;
 		while (current != null)
 		{
 			next = current.next;
@@ -46,43 +37,57 @@ public class UsingSlowFastPointer
 			prev = current;
 			current = next;
 		}
-		n = prev;
-		return n;
+		head = prev;
+		return head;
 	}
 
-	public boolean length()
+	public static boolean isPalindrome(Node head)
 	{
-		if (head == null || head.next == null)
-			return true;
 		Node slow = head;
 		Node fast = head;
-		while (fast.next != null && fast.next.next != null)
+		while (fast != null && fast.next != null)
 		{
 			slow = slow.next;
 			fast = fast.next.next;
-			slow.next = reverse(slow.next);
-			slow = slow.next;
-			while (slow != null)
-			{
-				if (head.data != slow.data)
-					return false;
-				head = head.next;
-				slow = slow.next;
-			}
-			return true;
 		}
-		return false;
+
+		slow.next = reverse(slow.next);
+		slow = slow.next;
+
+		while (slow != null)
+		{
+			if (head.data != slow.data)
+				return false;
+			head = head.next;
+			slow = slow.next;
+		}
+		return true;
 	}
 
 	public static void main(String[] args)
 	{
-		UsingSlowFastPointer list = new UsingSlowFastPointer();
-		for (int i = 5; i >= 1; i--)
+		// Create a linked list with
+		// values 1, 5, 2, 5, and 1 (15251, a palindrome)
+		Node head = new Node(1);
+		head.next = new Node(5);
+		head.next.next = new Node(2);
+		head.next.next.next = new Node(5);
+		head.next.next.next.next = new Node(1);
+
+		// Print the original linked list
+		System.out.print("Original Linked List: ");
+		printNode(head);
+		System.out.println();
+
+		// Check if the linked list is a palindrome
+		if (isPalindrome(head))
 		{
-			list.pushNode(i);
+			System.out.println("The linked list is a palindrome.");
 		}
-		boolean flag = list.length();
-		System.out.println(flag);
+		else
+		{
+			System.out.println("The linked list is not a palindrome.");
+		}
 	}
 
 }

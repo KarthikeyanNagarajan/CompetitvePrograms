@@ -1,4 +1,4 @@
-package com.karthik.practice.LinkedList.Q05_LengthOfLoopOrCycle;
+package com.karthik.practice.LinkedList.Q04_StartingPointOfLoop;
 
 class Node
 {
@@ -14,32 +14,26 @@ class Node
 
 public class UsingSlowFastPointer
 {
-	public static int countNodes(Node n)
-	{
-		Node temp = n;
-		int res = 1;
-		while (temp.next != n)
-		{
-			res++;
-			temp = temp.next;
-		}
-		return res;
-	}
-
-	public static int length(Node head)
+	public static Node startingPoint(Node head)
 	{
 		Node slow = head;
 		Node fast = head;
+		Node entry = head;
 		while (fast != null && fast.next != null)
 		{
-			slow = slow.next;
 			fast = fast.next.next;
-			if (slow == fast)
+			slow = slow.next;
+			if (fast == slow)
 			{
-				return countNodes(slow);
+				while (slow != entry)
+				{
+					slow = slow.next;
+					entry = entry.next;
+				}
+				return entry;
 			}
 		}
-		return 0;
+		return null;
 	}
 
 	public static void main(String[] args)
@@ -62,7 +56,16 @@ public class UsingSlowFastPointer
 		Node head = node1;
 
 		// Detect the loop in the linked list
-		System.out.println("Loop Length -> " + length(head));
+		Node loopStartNode = startingPoint(head);
+
+		if (loopStartNode != null)
+		{
+			System.out.println("Loop detected. Starting node of the loop is: " + loopStartNode.data);
+		}
+		else
+		{
+			System.out.println("No loop detected in the linked list.");
+		}
 	}
 
 }

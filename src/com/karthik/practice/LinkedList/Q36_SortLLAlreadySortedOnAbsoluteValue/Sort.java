@@ -38,23 +38,24 @@ public class Sort
 	{
 		if (head == null || head.next == null)
 			return head;
+
 		Node node = head;
-		Node next = head;
 		Node prev = null;
 		if (head.data < 0)
 		{
 			prev = node;
 			node = node.next;
 		}
-		while(node != null)
+
+		while (node != null)
 		{
-			if(node.data < 0)
+			if (node.data < 0)
 			{
 				prev.next = node.next;
-				next = node.next;
+				Node temp = node.next;
 				node.next = head;
 				head = node;
-				node = next;
+				node = temp;
 			}
 			else
 			{

@@ -53,27 +53,30 @@ public class DeleteNodes
 	public Node deleteNode(Node head)
 	{
 		head = reverse(head);
+
 		Node cur = head;
 		Node prev = head;
-		int max = head.data;
-		head = head.next;
-		while (head != null)
+		int max = cur.data;
+
+		cur = cur.next;
+		while (cur != null)
 		{
-			if (head != null)
-				System.out.println("head : " + head.data + " -  prev :" + prev.data + " -  max :" + max);
-			if (head.data > max)
+			if (cur != null)
+				System.out.println("cur : " + cur.data + " -  prev :" + prev.data + " -  max :" + max);
+			if (cur.data > max)
 			{
-				max = head.data;
-				prev = head;
-				head = head.next;
+				max = cur.data;
+				prev = cur;
+				cur = cur.next;
 			}
 			else
 			{
-				prev.next = head.next;
-				head = prev.next;
+				prev.next = cur.next;
+				cur = prev.next;
 			}
 		}
-		head = reverse(cur);
+
+		head = reverse(head);
 		return head;
 	}
 

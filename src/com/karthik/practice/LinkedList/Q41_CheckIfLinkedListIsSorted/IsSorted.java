@@ -36,17 +36,17 @@ public class IsSorted
 
 	public boolean isSorted()
 	{
-		boolean flag = true;
-		int x = Integer.MIN_VALUE;
-		Node p = head;
-		while (p != null)
+		int x = head.data;
+
+		Node temp = head;
+		while (temp != null)
 		{
-			if(p.data < x)
-				flag = false;
-			x = p.data;
-			p = p.next;
+			if (temp.data < x)
+				return false;
+			x = temp.data;
+			temp = temp.next;
 		}
-		return flag;
+		return true;
 	}
 
 	public static void main(String[] args)
@@ -54,7 +54,7 @@ public class IsSorted
 		IsSorted list = new IsSorted();
 		list.pushNode(12);
 		list.pushNode(11);
-		list.pushNode(9);
+		list.pushNode(1);
 		list.pushNode(5);
 		list.pushNode(3);
 		list.pushNode(2);

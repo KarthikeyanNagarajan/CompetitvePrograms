@@ -1,31 +1,25 @@
 package com.karthik.practice.Stack.Q02_ImplementStackUsingLinkedList;
 
+class Node
+{
+	int data;
+	Node next;
+
+	Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+	}
+}
+
 public class Stack
 {
-	class StackNode
-	{
-		int data;
-		StackNode next;
-
-		StackNode(int data)
-		{
-			this.data = data;
-			this.next = null;
-		}
-	}
-
-	StackNode top;
-	int size;
-
-	Stack()
-	{
-		this.top = null;
-		this.size = 0;
-	}
+	Node top = null;
+	int size = 0;
 
 	void push(int data)
 	{
-		StackNode element = new StackNode(data);
+		Node element = new Node(data);
 		element.next = top;
 		top = element;
 		size++;
@@ -51,7 +45,7 @@ public class Stack
 
 	void print()
 	{
-		StackNode element = top;
+		Node element = top;
 		while (element != null)
 		{
 			System.out.print(element.data + " ");

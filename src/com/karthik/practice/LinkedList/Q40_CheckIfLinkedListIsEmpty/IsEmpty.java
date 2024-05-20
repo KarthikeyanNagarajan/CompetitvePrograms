@@ -18,10 +18,9 @@ public class IsEmpty
 
 	public boolean isEmpty()
 	{
-		boolean flag = false;
 		if (head == null)
-			flag = true;
-		return flag;
+			return true;
+		return false;
 	}
 
 	public static void main(String[] args)

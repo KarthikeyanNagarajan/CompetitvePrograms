@@ -28,7 +28,7 @@ public class NextGreaterElementLinear
 
 	public static void main(String[] args)
 	{
-		int arr[] = { 5, 7, 1, 2, 6, 0 };
+		int arr[] = { 4, 12, 5, 3, 1, 2, 5, 3, 1, 2, 4, 6 };
 
 		int arr2[] = find(arr);
 		System.out.println("The next greater elements are ");

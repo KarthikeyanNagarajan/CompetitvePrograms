@@ -46,8 +46,8 @@ public class Method1
 	{
 		int[] arr = { 1, 21, 3, 6, 3, 6, 1 }; // ans = 1 3 6
 		int len = arr.length;
-//		Method(arr, len);
-		System.out.println(findDuplicate(arr));
+		Method(arr, len);
+//		System.out.println(findDuplicate(arr));
 	}
 
 }

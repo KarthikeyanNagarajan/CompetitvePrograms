@@ -12,8 +12,7 @@ public class Using2Loops
 			for (int j = i; j < len; j++)
 			{
 				sum += arr[j];
-				if (sum > max)
-					max = sum;
+				max = Math.max(max, sum);
 			}
 		}
 		return max;

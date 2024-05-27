@@ -15,8 +15,7 @@ public class Using3Loops
 				{
 					sum += arr[k];
 				}
-				if (sum > max)
-					max = sum;
+				max = Math.max(max, sum);
 			}
 		}
 		return max;

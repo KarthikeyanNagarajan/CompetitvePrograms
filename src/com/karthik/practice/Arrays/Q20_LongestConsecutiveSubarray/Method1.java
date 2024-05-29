@@ -11,10 +11,11 @@ public class Method1
 	public static int UsingMethod1(int[] arr, int n)
 	{
 		Arrays.sort(arr);
-		int ans = 0, count = 0;
-		for (int i = 0; i < n; i++)
+		int ans = 0;
+		int count = 1;
+		for (int i = 1; i < n; i++)
 		{
-			if (i > 0 && arr[i] == arr[i - 1] + 1)
+			if (arr[i] == arr[i - 1] + 1)
 				count++;
 			else
 				count = 1;

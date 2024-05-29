@@ -4,52 +4,49 @@ import java.util.Arrays;
 
 public class GapMethod
 {
-	public static int NextGap(int n)
+	public static void swap(int[] arr1, int[] arr2, int i, int j)
 	{
-		if (n <= 1)
-			return 0;
-		return (n / 2) + (n % 2);
-		// Math.ceil(n/2);
+		if (arr1[i] > arr2[j])
+		{
+			int temp = arr1[i];
+			arr1[i] = arr2[j];
+			arr2[j] = temp;
+		}
 	}
 
-	public static void UsingGapMethod(int[] arr1, int[] arr2, int n1, int n2)
+	public static void UsingGapMethod(int[] arr1, int[] arr2, int n, int m)
 	{
 		Arrays.sort(arr1);
 		Arrays.sort(arr2);
-		int gap = n1 + n2;
-		int i = 0, j = 0;
-		for (gap = NextGap(gap); gap > 0; gap = NextGap(gap))
+
+		int len = n + m;
+		int gap = (len / 2) + (len % 2);
+
+		while (gap > 0)
 		{
-			for (i = 0; i + gap < n1; i++)
+			int left = 0;
+			int right = left + gap;
+
+			while (right < len)
 			{
-				if (arr1[i] > arr1[i + gap])
-				{
-					int temp = arr1[i + gap];
-					arr1[i + gap] = arr1[i];
-					arr1[i] = temp;
-				}
+				// In both arr
+				if (left < n && right >= n)
+					swap(arr1, arr2, left, right - n);
+				// In arr2
+				else if (left >= n)
+					swap(arr2, arr2, left - n, right - n);
+				// In arr1
+				else
+					swap(arr1, arr1, left, right);
+
+				left++;
+				right++;
 			}
-			for (j = gap > n1 ? gap : 0; i < n1 && j < n2; i++, j++)
-			{
-				if (arr1[i] > arr2[j])
-				{
-					int temp = arr2[j];
-					arr2[j] = arr1[i];
-					arr1[i] = temp;
-				}
-			}
-			if (j < n2)
-			{
-				for (j = 0; j + gap < n2; j++)
-				{
-					if (arr2[j] > arr2[j + gap])
-					{
-						int temp = arr2[j + gap];
-						arr2[j + gap] = arr2[j];
-						arr2[j] = temp;
-					}
-				}
-			}
+
+			if (gap == 1)
+				break;
+
+			gap = (gap / 2) + (gap % 2);
 		}
 
 		Arrays.stream(arr1).forEach(l -> System.out.print(l + " "));
@@ -60,9 +57,9 @@ public class GapMethod
 	{
 		int arr1[] = { 5, 3, 7, 9 };
 		int arr2[] = { 6, 7, 1, 8 };
-		int n1 = arr1.length;
-		int n2 = arr2.length;
-		UsingGapMethod(arr1, arr2, n1, n2);
+		int n = arr1.length;
+		int m = arr2.length;
+		UsingGapMethod(arr1, arr2, n, m);
 
 	}
 

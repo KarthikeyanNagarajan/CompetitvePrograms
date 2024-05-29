@@ -2,7 +2,7 @@ package com.karthik.practice.Arrays.Q13_MergeIntervals;
 
 import java.util.Stack;
 
-public class UsingStack
+public class UsingStackMethod
 {
 	static class Pair
 	{

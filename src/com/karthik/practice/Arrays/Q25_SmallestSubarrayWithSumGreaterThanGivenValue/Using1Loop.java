@@ -5,17 +5,17 @@ public class Using1Loop
 	public static int Using1LoopsMethod(int[] arr, int x, int n)
 	{
 		int min = Integer.MAX_VALUE;
-		int i = 0, j = 0, s = 0;
+		int i = 0, j = 0, sum = 0;
 		while (i <= j && j < n)
 		{
-			while (s <= x && j < n)
+			while (sum <= x && j < n)
 			{
-				s += arr[j++];
+				sum += arr[j++];
 			}
-			while (s > x && i < j)
+			while (sum > x && i < j)
 			{
 				min = Integer.min(min, j - i);
-				s -= arr[i++];
+				sum -= arr[i++];
 			}
 		}
 		return min;

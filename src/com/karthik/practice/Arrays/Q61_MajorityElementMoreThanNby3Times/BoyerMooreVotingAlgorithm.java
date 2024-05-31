@@ -7,44 +7,49 @@ public class BoyerMooreVotingAlgorithm
 {
 	public static List<Integer> UsingBoyerMooreVotingAlgorithm(int[] arr, int n)
 	{
-		List<Integer> ls = new ArrayList<>();
-		int num1 = -1, num2 = -1, count1 = 0, count2 = 0, i = 0;
-		for (i = 0; i < n; i++)
+		int cnt1 = 0;
+		int element1 = 0;
+		int cnt2 = 0;
+		int element2 = 0;
+
+		for (int i = 0; i < n; i++)
 		{
-			if (arr[i] == num1)
-				count1++;
-			else if (arr[i] == num2)
-				count2++;
-			else if (count1 == 0)
+			if (cnt1 == 0)
 			{
-				num1 = arr[i];
-				count1 = 1;
+				cnt1++;
+				element1 = arr[i];
 			}
-			else if (count2 == 0)
+			else if (cnt2 == 0)
 			{
-				num2 = arr[i];
-				count2 = 1;
+				cnt2++;
+				element2 = arr[i];
 			}
+			else if (arr[i] == element1)
+				cnt1++;
+			else if (arr[i] == element2)
+				cnt2++;
 			else
 			{
-				count1--;
-				count2--;
+				cnt1--;
+				cnt2--;
 			}
 		}
 
-		count1 = count2 = 0;
-		for (i = 0; i < n; i++)
+		cnt1 = cnt2 = 0;
+		for (int i = 0; i < n; i++)
 		{
-			if (arr[i] == num1)
-				count1++;
-			else if (arr[i] == num2)
-				count2++;
+			if (arr[i] == element1)
+				cnt1++;
+			else if (arr[i] == element2)
+				cnt2++;
 		}
-		
-		if(count1 > n / 3)
-			ls.add(num1);
-		if(count2 > n / 3)
-			ls.add(num2);
+
+		List<Integer> ls = new ArrayList<>();
+		if (cnt1 > n / 3)
+			ls.add(element1);
+		if (cnt2 > n / 3)
+			ls.add(element2);
+
 		return ls;
 	}
 

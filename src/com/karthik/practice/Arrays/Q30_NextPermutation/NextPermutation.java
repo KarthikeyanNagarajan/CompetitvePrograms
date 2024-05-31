@@ -69,9 +69,9 @@ public class NextPermutation
 
 	public static void main(String[] args)
 	{
-		// int arr[] = { 3, 2, 1 }; // ans = {1, 2, 3}
+		 int arr[] = { 3, 2, 1 }; // ans = {1, 2, 3}
 		// int arr[] = {1, 2, 3, 6, 5, 4}; // ans = {1, 2, 4, 3, 5, 6}
-		int arr[] = { 1, 2, 3 };
+//		int arr[] = { 1, 2, 3 };
 		// int arr[] = {1, 1, 5};
 		NextPermutationMethod(arr, arr.length);
 

@@ -2,7 +2,7 @@ package com.karthik.practice.Arrays.Q37_FirstNonRepeatingElement;
 
 public class Using2Loops
 {
-	public static boolean Using2LoopsMethod(int[] arr, int n)
+	public static void Using2LoopsMethod(int[] arr, int n)
 	{
 		for (int i = 0; i < n; i++)
 		{
@@ -13,15 +13,14 @@ public class Using2Loops
 					count++;
 			}
 			if (count == 1)
-				return false;
+				System.out.println(arr[i]);
 		}
-		return true;
 	}
 
 	public static void main(String[] args)
 	{
 		int[] arr = { 1, 1, 2, 2, 2, 3, 3, 4, 5, 5, 6, 6 };
-		System.out.println(Using2LoopsMethod(arr, arr.length));
+		Using2LoopsMethod(arr, arr.length);
 	}
 
 }

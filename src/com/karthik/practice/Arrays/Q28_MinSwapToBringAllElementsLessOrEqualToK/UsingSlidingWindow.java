@@ -1,5 +1,7 @@
 package com.karthik.practice.Arrays.Q28_MinSwapToBringAllElementsLessOrEqualToK;
 
+import java.util.Arrays;
+
 public class UsingSlidingWindow
 {
 	public static int UsingSlidingWindowMethod(int[] arr, int n, int k)
@@ -19,6 +21,7 @@ public class UsingSlidingWindow
 				ans++;
 			}
 		}
+		Arrays.stream(arr).forEach(i -> System.out.print(i + " "));
 		return ans;
 	}
 
@@ -26,6 +29,8 @@ public class UsingSlidingWindow
 	{
 		int[] arr = { 2, 1, 5, 6, 3 };
 		int k = 3;
-		System.out.println(UsingSlidingWindowMethod(arr, arr.length, k));
+		int ans = UsingSlidingWindowMethod(arr, arr.length, k);
+		System.out.println();
+		System.out.println(ans);
 	}
 }

@@ -1,4 +1,4 @@
-package com.karthik.practice.Arrays.Q09_FindDuplicateInArrayWithConstantSpace;
+package com.karthik.practice.Arrays.Q11_FindDuplicateInArrayWithConstantSpace;
 
 import java.util.Arrays;
 

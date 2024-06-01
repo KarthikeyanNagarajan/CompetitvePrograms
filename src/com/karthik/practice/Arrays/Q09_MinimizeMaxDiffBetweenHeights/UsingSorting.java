@@ -1,4 +1,4 @@
-package com.karthik.practice.Arrays.Q10_MinimizeMaxDiffBetweenHeights;
+package com.karthik.practice.Arrays.Q09_MinimizeMaxDiffBetweenHeights;
 
 import java.util.Arrays;
 

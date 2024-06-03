@@ -51,8 +51,7 @@ public class UsingSlowFastPointer
 			fast = fast.next.next;
 		}
 
-		slow.next = reverse(slow.next);
-		slow = slow.next;
+		slow = reverse(slow);
 
 		while (slow != null)
 		{

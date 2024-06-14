@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_CheckIfArrayIsSorted;
+package com.karthik.practice.Recursion.Q31_CheckIfArrayIsSorted;
 
 public class CheckIfArrayIsSorted
 {

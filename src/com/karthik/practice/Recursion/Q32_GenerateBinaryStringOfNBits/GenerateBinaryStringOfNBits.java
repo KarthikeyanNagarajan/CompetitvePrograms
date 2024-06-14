@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_GenerateBinaryStringOfNBits;
+package com.karthik.practice.Recursion.Q32_GenerateBinaryStringOfNBits;
 
 import java.util.Arrays;
 

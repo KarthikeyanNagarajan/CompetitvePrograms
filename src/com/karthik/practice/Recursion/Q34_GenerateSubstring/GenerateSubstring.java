@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_GenerateSubstring;
+package com.karthik.practice.Recursion.Q34_GenerateSubstring;
 
 public class GenerateSubstring
 {

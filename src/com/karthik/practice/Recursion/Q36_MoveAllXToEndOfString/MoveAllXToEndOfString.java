@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_MoveAllXToEndOfString;
+package com.karthik.practice.Recursion.Q36_MoveAllXToEndOfString;
 
 public class MoveAllXToEndOfString
 {

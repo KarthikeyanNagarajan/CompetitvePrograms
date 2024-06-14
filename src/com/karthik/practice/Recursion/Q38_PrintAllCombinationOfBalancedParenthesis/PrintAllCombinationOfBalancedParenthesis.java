@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_PrintAllCombinationOfBalancedParenthesis;
+package com.karthik.practice.Recursion.Q38_PrintAllCombinationOfBalancedParenthesis;
 
 public class PrintAllCombinationOfBalancedParenthesis
 {

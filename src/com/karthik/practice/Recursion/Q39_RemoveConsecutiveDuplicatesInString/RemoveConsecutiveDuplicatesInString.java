@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_RemoveConsecutiveDuplicatesInString;
+package com.karthik.practice.Recursion.Q39_RemoveConsecutiveDuplicatesInString;
 
 public class RemoveConsecutiveDuplicatesInString
 {

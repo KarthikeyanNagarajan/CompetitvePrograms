@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q35_SortStackUsingRecursion;
+package com.karthik.practice.Recursion.Q42_SortStackUsingRecursion;
 
 import java.util.ListIterator;
 import java.util.Stack;

@@ -4,19 +4,13 @@ public class ReplacePIwith314
 {
 	private static String replacePi(String s)
 	{
-		if (s.length() == 0 || s.length() == 1)
+		if (s.length() <= 1)
 			return s;
 
 		if (s.charAt(0) == 'p' && s.charAt(1) == 'i')
-		{
-			String output = replacePi(s.substring(2));
-			return "3.14" + output;
-		}
+			return "3.14" + replacePi(s.substring(2));
 		else
-		{
-			String output = replacePi(s.substring(1));
-			return s.charAt(0) + output;
-		}
+			return s.charAt(0) + replacePi(s.substring(1));
 	}
 
 	public static void main(String[] args)

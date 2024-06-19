@@ -9,20 +9,19 @@ public class BookAllocationProblem
 		int pagesStudents = 0;
 		for (int i = 0; i < n; i++)
 		{
-			if (pagesStudents + arr[i] > pages)
+			if (pagesStudents + arr[i] <= pages)
+				pagesStudents += arr[i];
+			else
 			{
 				students += 1;
 				pagesStudents = arr[i];
 			}
-			else
-				pagesStudents += arr[i];
 		}
 		return students;
 	}
 
-	private static int findPages(int[] arr, int d)
+	private static int findPages(int[] arr, int d, int n)
 	{
-		int n = arr.length;
 		int low = Integer.MIN_VALUE, high = 0;
 		for (int i = 0; i < n; i++)
 		{
@@ -46,7 +45,8 @@ public class BookAllocationProblem
 	{
 		int[] arr = { 25, 46, 28, 49, 24 };
 		int d = 4;
-		int ans = findPages(arr, d);
+		int n = arr.length;
+		int ans = findPages(arr, d, n);
 		System.out.println("The minimum capacity should be: " + ans);
 	}
 

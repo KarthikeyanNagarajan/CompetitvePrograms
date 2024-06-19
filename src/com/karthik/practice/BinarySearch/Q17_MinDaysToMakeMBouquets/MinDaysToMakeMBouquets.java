@@ -3,9 +3,8 @@ package com.karthik.practice.BinarySearch.Q17_MinDaysToMakeMBouquets;
 public class MinDaysToMakeMBouquets
 {
 
-	public static boolean possible(int[] arr, int day, int m, int k)
+	public static boolean possible(int[] arr, int day, int m, int k, int n)
 	{
-		int n = arr.length;
 		int cnt = 0;
 		int noOfB = 0;
 		for (int i = 0; i < n; i++)
@@ -22,25 +21,23 @@ public class MinDaysToMakeMBouquets
 		return noOfB >= m;
 	}
 
-	private static int roseGarden(int[] arr, int k, int m)
+	private static int roseGarden(int[] arr, int f, int b, int n)
 	{
-		int n = arr.length;
-		long val = m * k;
+		long val = f * b;
 		if (val > n) // if(n < (long) m * k) (leetcode)
 			return -1;
 
-		int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+		int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE;
 		for (int i = 0; i < n; i++)
 		{
-			min = Math.min(min, arr[i]);
-			max = Math.max(max, arr[i]);
+			low = Math.min(low, arr[i]);
+			high = Math.max(high, arr[i]);
 		}
 
-		int low = min, high = max;
 		while (low <= high)
 		{
 			int mid = (low + high) / 2;
-			if (possible(arr, mid, m, k))
+			if (possible(arr, mid, b, f, n))
 				high = mid - 1;
 			else
 				low = mid + 1;
@@ -51,9 +48,10 @@ public class MinDaysToMakeMBouquets
 	public static void main(String[] args)
 	{
 		int[] arr = { 7, 7, 7, 7, 13, 11, 12, 7 };
-		int k = 3; // Flower per Bouquet
-		int m = 2; // Number of Bouquets
-		int ans = roseGarden(arr, k, m);
+		int f = 3; // Flower per Bouquet
+		int b = 2; // Number of Bouquets
+		int n = arr.length;
+		int ans = roseGarden(arr, f, b, n);
 		if (ans == -1)
 			System.out.println("We cannot make m bouquets.");
 		else

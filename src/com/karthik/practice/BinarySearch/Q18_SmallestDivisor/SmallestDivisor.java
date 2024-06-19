@@ -3,35 +3,30 @@ package com.karthik.practice.BinarySearch.Q18_SmallestDivisor;
 public class SmallestDivisor
 {
 
-	public static int sumByD(int[] arr, int div)
+	public static int sumByD(int[] arr, int div, int n)
 	{
-		int n = arr.length;
 		int sum = 0;
 
 		for (int i = 0; i < n; i++)
-		{
 			sum += Math.ceil((double) arr[i] / (double) div);
-		}
+
 		return sum;
 	}
 
-	private static int smallestDivisor(int[] arr, int limit)
+	private static int smallestDivisor(int[] arr, int limit, int n)
 	{
-		int n = arr.length;
 		if (n > limit)
 			return -1;
 
-		int max = Integer.MIN_VALUE;
+		int low = 1, high = Integer.MIN_VALUE;
 		for (int i = 0; i < n; i++)
-		{
-			max = Math.max(max, arr[i]);
-		}
+			high = Math.max(high, arr[i]);
 
-		int low = 1, high = max;
 		while (low <= high)
 		{
 			int mid = (low + high) / 2;
-			if (sumByD(arr, mid) <= limit)
+			int sum = sumByD(arr, mid, n);
+			if (sum <= limit)
 				high = mid - 1;
 			else
 				low = mid + 1;
@@ -43,7 +38,8 @@ public class SmallestDivisor
 	{
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int limit = 8;
-		int ans = smallestDivisor(arr, limit);
+		int n = arr.length;
+		int ans = smallestDivisor(arr, limit, n);
 		System.out.println("The minimum divisor is: " + ans);
 	}
 

@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class AggressiveCows
 {
 
-	public static boolean canWePlace(int[] stalls, int dist, int cows)
+	public static boolean canWePlace(int[] stalls, int dist, int cows, int n)
 	{
-		int n = stalls.length;
 		int cntCows = 1; // no. of cows placed
 		int last = stalls[0]; // position of last placed cow.
 
@@ -18,22 +17,22 @@ public class AggressiveCows
 				cntCows++;
 				last = stalls[i];
 			}
+
 			if (cntCows >= cows)
 				return true;
 		}
 		return false;
 	}
 
-	private static int aggressiveCows(int[] stalls, int k)
+	private static int aggressiveCows(int[] stalls, int k, int n)
 	{
-		int n = stalls.length;
 		Arrays.sort(stalls);
 
 		int low = 1, high = stalls[n - 1] - stalls[0];
 		while (low <= high)
 		{
 			int mid = (low + high) / 2;
-			if (canWePlace(stalls, mid, k) == true)
+			if (canWePlace(stalls, mid, k, n))
 				low = mid + 1;
 			else
 				high = mid - 1;
@@ -45,7 +44,8 @@ public class AggressiveCows
 	{
 		int[] stalls = { 0, 3, 4, 7, 10, 9 };
 		int k = 4;
-		int ans = aggressiveCows(stalls, k);
+		int n = stalls.length;
+		int ans = aggressiveCows(stalls, k, n);
 		System.out.println("The maximum possible minimum distance is: " + ans);
 	}
 

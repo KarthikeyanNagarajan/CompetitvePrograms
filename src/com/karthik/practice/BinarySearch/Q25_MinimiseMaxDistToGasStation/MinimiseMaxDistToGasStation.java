@@ -18,9 +18,8 @@ public class MinimiseMaxDistToGasStation
 		return cnt;
 	}
 
-	public static double minimiseMaxDistance(int[] arr, int k)
+	public static double minimiseMaxDistance(int[] arr, int n, int k)
 	{
-		int n = arr.length;
 		double low = 0;
 		double high = 0;
 
@@ -35,14 +34,10 @@ public class MinimiseMaxDistToGasStation
 		{
 			double mid = (low + high) / (2.0);
 			int cnt = numberOfGasStationsRequired(mid, arr);
-			if (cnt > k)
-			{
-				low = mid;
-			}
+			if (cnt <= k)
+				high = mid;			
 			else
-			{
-				high = mid;
-			}
+				low = mid;			
 		}
 		return high;
 	}
@@ -51,7 +46,8 @@ public class MinimiseMaxDistToGasStation
 	{
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int k = 4;
-		double ans = minimiseMaxDistance(arr, k);
+		int n = arr.length;
+		double ans = minimiseMaxDistance(arr, n, k);
 		System.out.println("The answer is: " + ans);
 	}
 }

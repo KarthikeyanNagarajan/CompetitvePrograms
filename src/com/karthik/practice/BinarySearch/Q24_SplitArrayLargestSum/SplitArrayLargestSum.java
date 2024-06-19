@@ -6,23 +6,22 @@ public class SplitArrayLargestSum
 	public static int countPartitions(int[] arr, int capacity, int n)
 	{
 		int partitions = 1;
-		int subarraySum = 0;		
+		int subarraySum = 0;
 		for (int i = 0; i < n; i++)
 		{
-			if(subarraySum + arr[i] > capacity)
+			if (subarraySum + arr[i] <= capacity)
+				subarraySum += arr[i];
+			else
 			{
 				partitions += 1;
 				subarraySum = arr[i];
 			}
-			else
-				subarraySum += arr[i];
 		}
 		return partitions;
 	}
 
-	private static int largestSubarraySumMinimized(int[] arr, int d)
+	private static int largestSubarraySumMinimized(int[] arr, int d, int n)
 	{
-		int n = arr.length;
 		int low = Integer.MIN_VALUE, high = 0;
 		for (int i = 0; i < n; i++)
 		{
@@ -44,9 +43,10 @@ public class SplitArrayLargestSum
 
 	public static void main(String[] args)
 	{
-		int[] arr = {10, 20, 30, 40};
-        int d = 2;
-		int ans = largestSubarraySumMinimized(arr, d);
+		int[] arr = { 10, 20, 30, 40 };
+		int d = 2;
+		int n = arr.length;
+		int ans = largestSubarraySumMinimized(arr, d, n);
 		System.out.println("The minimum capacity should be: " + ans);
 	}
 

@@ -6,23 +6,22 @@ public class PainterPartition
 	public static int countPainters(int[] arr, int capacity, int n)
 	{
 		int painters = 1;
-		int boardsPainter = 0;		
+		int boardsPainter = 0;
 		for (int i = 0; i < n; i++)
 		{
-			if(boardsPainter + arr[i] > capacity)
+			if (boardsPainter + arr[i] <= capacity)
+				boardsPainter += arr[i];
+			else
 			{
 				painters += 1;
 				boardsPainter = arr[i];
 			}
-			else
-				boardsPainter += arr[i];
 		}
 		return painters;
 	}
 
-	private static int findLargestMinDistance(int[] arr, int d)
+	private static int findLargestMinDistance(int[] arr, int d, int n)
 	{
-		int n = arr.length;
 		int low = Integer.MIN_VALUE, high = 0;
 		for (int i = 0; i < n; i++)
 		{
@@ -44,9 +43,10 @@ public class PainterPartition
 
 	public static void main(String[] args)
 	{
-		int[] arr = {10, 20, 30, 40};
-        int d = 2;
-		int ans = findLargestMinDistance(arr, d);
+		int[] arr = { 10, 20, 30, 40 };
+		int d = 2;
+		int n = arr.length;
+		int ans = findLargestMinDistance(arr, d, n);
 		System.out.println("The minimum capacity should be: " + ans);
 	}
 

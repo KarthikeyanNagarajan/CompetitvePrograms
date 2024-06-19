@@ -2,9 +2,8 @@ package com.karthik.practice.BinarySearch.Q25_MinimiseMaxDistToGasStation;
 
 public class MinimiseMaxDistToGasStation
 {
-	public static int numberOfGasStationsRequired(double dist, int[] arr)
+	public static int numberOfGasStationsRequired(double dist, int[] arr, int n)
 	{
-		int n = arr.length;
 		int cnt = 0;
 		for (int i = 1; i < n; i++)
 		{
@@ -18,10 +17,9 @@ public class MinimiseMaxDistToGasStation
 		return cnt;
 	}
 
-	public static double minimiseMaxDistance(int[] arr, int n, int k)
+	public static double minimiseMaxDistance(int[] arr, int k, int n)
 	{
-		double low = 0;
-		double high = 0;
+		double low = 0, high = 0;
 
 		// Find the maximum difference in distance:
 		for (int i = 0; i < n - 1; i++)
@@ -33,11 +31,11 @@ public class MinimiseMaxDistToGasStation
 		while (high - low > diff)
 		{
 			double mid = (low + high) / (2.0);
-			int cnt = numberOfGasStationsRequired(mid, arr);
+			int cnt = numberOfGasStationsRequired(mid, arr, n);
 			if (cnt <= k)
-				high = mid;			
+				high = mid;
 			else
-				low = mid;			
+				low = mid;
 		}
 		return high;
 	}
@@ -47,7 +45,7 @@ public class MinimiseMaxDistToGasStation
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int k = 4;
 		int n = arr.length;
-		double ans = minimiseMaxDistance(arr, n, k);
+		double ans = minimiseMaxDistance(arr, k, n);
 		System.out.println("The answer is: " + ans);
 	}
 }

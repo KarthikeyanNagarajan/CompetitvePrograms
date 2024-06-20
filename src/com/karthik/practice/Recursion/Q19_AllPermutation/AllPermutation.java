@@ -1,10 +1,10 @@
-package com.karthik.practice.Recursion.Q19_Permutation;
+package com.karthik.practice.Recursion.Q19_AllPermutation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Permutation
+public class AllPermutation
 {
 	public static void swap(int x, int y, int[] nums)
 	{

@@ -7,26 +7,28 @@ import java.util.List;
 
 public class SubsetSum1
 {
-	public static void func(int ind, int sum, List<Integer> arr, int n, List<Integer> sumSubset)
+	public static void func(int ind, int sum, List<Integer> arr, int n, List<Integer> ans)
 	{
 		if (ind == n)
 		{
-			sumSubset.add(sum);
+			ans.add(sum);
 			return;
 		}
 
-		func(ind + 1, sum + arr.get(ind), arr, n, sumSubset);
-		func(ind + 1, sum, arr, n, sumSubset);
+		func(ind + 1, sum + arr.get(ind), arr, n, ans);
+		func(ind + 1, sum, arr, n, ans);
 	}
 
 	public static void main(String[] args)
 	{
 		List<Integer> arr = Arrays.asList(2, 3);
 		int n = 2;
-		List<Integer> sumSubset = new ArrayList<>();
-		func(0, 0, arr, n, sumSubset);
-		Collections.sort(sumSubset);
-		System.out.println(sumSubset);
+
+		List<Integer> ans = new ArrayList<>();
+		func(0, 0, arr, n, ans);
+
+		Collections.sort(ans);
+		System.out.println(ans);
 	}
 
 }

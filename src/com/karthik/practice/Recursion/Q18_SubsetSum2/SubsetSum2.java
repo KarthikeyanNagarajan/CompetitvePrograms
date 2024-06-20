@@ -22,8 +22,10 @@ public class SubsetSum2
 	public static void main(String[] args)
 	{
 		List<Integer> arr = Arrays.asList(1, 2, 2);
+
 		List<List<Integer>> ans = new ArrayList<>();
 		func(0, arr, new ArrayList<>(), ans);
+
 		System.out.println(ans);
 	}
 

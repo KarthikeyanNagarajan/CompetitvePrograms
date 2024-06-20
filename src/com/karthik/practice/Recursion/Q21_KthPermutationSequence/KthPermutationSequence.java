@@ -1,4 +1,4 @@
-package com.karthik.practice.Recursion.Q20_KthPermutationSequence;
+package com.karthik.practice.Recursion.Q21_KthPermutationSequence;
 
 import java.util.ArrayList;
 

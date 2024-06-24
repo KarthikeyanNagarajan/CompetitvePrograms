@@ -4,21 +4,22 @@ import java.util.Arrays;
 
 public class Method1
 {
-	//working
-	public static void Method(int[] arr, int len)
+	// working
+	public static void Method(int[] arr, int n)
 	{
-		for (int i = 0; i < len; i++)
+		for (int i = 0; i < n; i++)
 		{
-			arr[arr[i] % len] = arr[arr[i] % len] + len;
+			arr[arr[i] % n] = arr[arr[i] % n] + n;
 		}
 		// arr = [1, 16, 10, 20, 3, 6, 15] after iteration
-		for (int i = 0; i < len; i++)
+		for (int i = 0; i < n; i++)
 		{
-			if (arr[i] / len > 1)
+			if (arr[i] / n > 1)
 				System.out.print(i + " ");
 		}
 	}
-	//working only in sorted array
+
+	// working only in sorted array
 	public static int findDuplicate(int[] nums)
 	{
 		Arrays.sort(nums);
@@ -47,7 +48,7 @@ public class Method1
 		int[] arr = { 1, 21, 3, 6, 3, 6, 1 }; // ans = 1 3 6
 		int len = arr.length;
 		Method(arr, len);
-//		System.out.println(findDuplicate(arr));
+		// System.out.println(findDuplicate(arr));
 	}
 
 }

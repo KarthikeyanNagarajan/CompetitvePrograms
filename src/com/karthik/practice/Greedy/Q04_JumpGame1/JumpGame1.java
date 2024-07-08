@@ -16,8 +16,8 @@ public class JumpGame1
 
 	public static void main(String[] args)
 	{
-		int[] arr = {};
-		int n = 0;
+		int[] arr = { 2, 3, 1, 1, 4 };
+		int n = 5;
 		System.out.println("Is Jump is possible ? --> " + func(arr, n));
 	}
 

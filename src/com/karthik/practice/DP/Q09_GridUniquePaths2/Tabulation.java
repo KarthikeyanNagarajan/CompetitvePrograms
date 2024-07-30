@@ -7,20 +7,44 @@ public class Tabulation
 
 	public static void main(String[] args)
 	{
-		int arr[] = { 2, 1, 4, 9 };
-		int n = arr.length;
-		int dp[] = new int[n];
-		Arrays.fill(dp, -1);
-		dp[0] = arr[0];
-		for (int i = 1; i < n; i++)
+		int[][] maze = { { 0, 0, 0 }, { 0, -1, 0 }, { 0, 0, 0 } };
+
+		int n = maze.length;
+		int m = maze[0].length;
+
+		int dp[][] = new int[n][m];
+		for (int row[] : dp)
+			Arrays.fill(row, -1);
+
+		for (int i = 0; i < n; i++)
 		{
-			int pick = arr[i];
-			if (i > 1)
-				pick += dp[i - 2];
-			int notpick = 0 + dp[i - 1];
-			dp[i] = Math.max(pick, notpick);
+			for (int j = 0; j < m; j++)
+			{
+				if (i > 0 && j > 0 && maze[i][j] == -1)
+				{
+					dp[i][j] = 0;
+					continue;
+				}
+				if (i == 0 && j == 0)
+				{
+					dp[i][j] = 1;
+					continue;
+				}
+
+				int up = 0;
+				int left = 0;
+
+				if (i > 0)
+					up = dp[i - 1][j];
+
+				if (j > 0)
+					left = dp[i][j - 1];
+
+				dp[i][j] = up + left;
+			}
 		}
-		System.out.println(dp[n - 1]);
+
+		System.out.println(dp[n - 1][m - 1]);
 	}
 
 }

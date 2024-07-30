@@ -4,27 +4,38 @@ import java.util.Arrays;
 
 public class RecursionWithMemoization
 {
-	private static int recur(int n, int[] arr, int[] dp)
+	private static int recur(int i, int j, int[][] maze, int[][] dp)
 	{
-		if (n == 0)
-			return arr[n];
-		if (n < 0)
+		if (i >= 0 && j >= 0 && maze[i][j] == -1)
 			return 0;
-		if (dp[n] != -1)
-			return dp[n];
 
-		int pick = arr[n] + recur(n - 2, arr, dp);
-		int notpick = 0 + recur(n - 1, arr, dp);
-		return dp[n] = Math.max(pick, notpick);
+		if (i == 0 && j == 0)
+			return 1;
+
+		if (i < 0 || j < 0)
+			return 0;
+
+		if (dp[i][j] != -1)
+			return dp[i][j];
+
+		int up = recur(i - 1, j, maze, dp);
+		int left = recur(i, j - 1, maze, dp);
+
+		return dp[i][j] = up + left;
 	}
 
 	public static void main(String[] args)
 	{
-		int arr[] = { 2, 1, 4, 9 };
-		int n = arr.length;
-		int[] dp = new int[n];
-		Arrays.fill(dp, -1);
-		System.out.println(recur(n - 1, arr, dp));
+		int[][] maze = { { 0, 0, 0 }, { 0, -1, 0 }, { 0, 0, 0 } };
+
+		int n = maze.length;
+		int m = maze[0].length;
+
+		int dp[][] = new int[n][m];
+		for (int row[] : dp)
+			Arrays.fill(row, -1);
+
+		System.out.println(recur(n - 1, m - 1, maze, dp));
 	}
 
 }
